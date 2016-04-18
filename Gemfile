@@ -48,7 +48,25 @@ gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # For TDD gems
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
 end
+
+group :test do
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  gem 'fuubar'
+  gem 'launchy'
+  gem 'rspec'
+
+  # Other test gems to consider
+  gem 'capybara-email'
+  gem 'shoulda-matchers', '~> 3.1'
+end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
