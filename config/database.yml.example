@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  username: <%= `whoami`.strip %>
+  database: siestag_dev
+  password: your_password
+
+test:
+  <<: *default
+  username: <%= `whoami`.strip %>
+  database: your_password_test
+
+production:
+  <<: *default
+  username: deployer
+  database: siestag_production
+  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
