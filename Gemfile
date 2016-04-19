@@ -36,6 +36,10 @@ gem "slim-rails", '~> 3.0.1'
 #Authentication
 gem 'devise'
 
+#helpers
+gem 'annotate'
+gem 'letter_opener'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
