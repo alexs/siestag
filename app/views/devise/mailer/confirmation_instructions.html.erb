@@ -1,5 +1,7 @@
-<p>Welcome <%= @email %>!</p>
+<h1>Registro exitoso</h1>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Gracias por registrarte en el Sistema de Estudiantes Asociados del <%= institution_name_with_link %></p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>Para continuar debes confirmar tu cuenta por medio del siguiente enlace:</p>
+
+<p><%= link_to 'Confirmar cuenta', confirmation_url(@resource, confirmation_token: @token) %></p>

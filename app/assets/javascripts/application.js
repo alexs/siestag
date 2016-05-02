@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require materialize-sprockets
+//= require materialize/extras/nouislider
+//= require pickadate/picker
+//= require pickadate/picker.time
 //= require_tree .
+
+$(document).ready(function() {
+  $('select').material_select();
+});

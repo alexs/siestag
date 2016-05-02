@@ -11,10 +11,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418234758) do
+ActiveRecord::Schema.define(version: 20160502164137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activity_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "citizen"
+    t.string   "code",       limit: 12
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "degrees", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_informations", force: :cascade do |t|
+    t.integer  "institution_id"
+    t.integer  "degree_id"
+    t.integer  "tutor_id"
+    t.boolean  "schoolarship"
+    t.integer  "activity_type_id"
+    t.text     "activity_other"
+    t.integer  "startmonth"
+    t.integer  "startyear"
+    t.integer  "student_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "student_informations", ["student_id"], name: "index_student_informations_on_student_id", using: :btree
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name"
+    t.string   "middlename"
+    t.string   "lastname"
+    t.integer  "birthplace"
+    t.integer  "nationality"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -27,6 +74,10 @@ ActiveRecord::Schema.define(version: 20160418234758) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -34,4 +85,5 @@ ActiveRecord::Schema.define(version: 20160418234758) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "student_informations", "students"
 end
