@@ -1,0 +1,82 @@
+= form_for @student, :multipart => true do |f|
+  - if @student.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@student.errors.count, "error")
+          | prohibited this article from being saved:
+      ul
+        - @student.errors.full_messages.each do |message|
+          li
+            = message
+  h4.blue-text Datos personales
+  <p class="caption">Ingresa la información correspondiente en el siguiente formulario</p>
+  <div class="row">
+    <div class="input-field col s4">
+      = f.text_field :name
+      = f.label :name
+    </div>
+    <div class="input-field col s4">
+      = f.text_field :middlename
+      = f.label :middlename
+    </div>
+    <div class="input-field col s4">
+      = f.text_field :lastname
+      = f.label :lastname
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s4">
+      = f.select(:birthplace, Country.all.order(:name).collect {|p| [ p.name, p.id ] }, { selected: 484 })
+      = f.label :birthplace
+    </div>
+    <div class="input-field col s4">
+      = f.select(:nationality, Country.all.order(:citizen).collect {|p| [ p.citizen, p.id ] }, { selected: 484 })
+      = f.label :nationality
+    </div>
+  </div>
+  h4.blue-text Información escolar
+  = f.fields_for :student_information do |student_information|
+    <div class="row">
+      <div class="input-field col s12">
+        = student_information.text_field :institution_name
+        = student_information.label :institution_name
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+        = student_information.select(:degree_id, Degree.all.order(:name).collect {|p| [ p.name, p.id ] })
+        = student_information.label :degree_id
+      </div>
+      <div class="input-field col s4">
+        - collection = options_for_select(Student.people_from_salva.parsed_response.map  { |b| [b["name"],b["id"]] })
+        = student_information.select :tutor_id, collection
+        = student_information.label :tutor_id
+      </div>
+      <div class="input-field col s4">
+        = student_information.select(:activity_type_id, ActivityType.all.collect {|p| [ p.name, p.id ] })
+        = student_information.label :activity_type_id
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+        = student_information.label :schoolarship
+        br
+        <p>
+          <input name="group1" type="radio" id="test1" />
+          <label for="test1">Sí</label>
+        </p>
+        <p>
+          <input name="group1" type="radio" id="test2" />
+          <label for="test2">No</label>
+        </p>
+      </div>
+      <div class="input-field col s4">
+        = student_information.select :startmonth, 1..12
+        = student_information.label :startmonth
+      </div>
+      <div class="input-field col s4">
+        = student_information.select :startyear, Date.today.year.. 8.years.from_now.year
+        = student_information.label :startyear
+      </div>
+    </div>
+  = f.submit

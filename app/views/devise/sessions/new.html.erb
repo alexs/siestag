@@ -1,4 +1,5 @@
-<h2>Log in</h2>
+<h4>Sistema de estudiantes asociados al Instituto de Geología</h4>
+<p class="flow-text">Ingresa con el correo electrónico y contraseña que registraste</p>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -11,16 +12,9 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Ingresar" %>
   </div>
 <% end %>
-
+<br />
 <%= render "devise/shared/links" %>

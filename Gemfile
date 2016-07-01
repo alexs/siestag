@@ -40,6 +40,9 @@ gem 'devise'
 gem 'annotate'
 gem 'letter_opener'
 
+#Api
+gem 'httparty'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

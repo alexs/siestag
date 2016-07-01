@@ -1,29 +1,59 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<br /><br />
+    <div id="login-page" class="row">
+        <div class="col s12 m6 s6 offset-m2 z-depth-6 card-panel blue lighten-5">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "login-form"}) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+            <div class="row">
+              <div class="input-field col s12 center">
+                <img src="http://132.248.20.105/assets/logo-34a45b9adf7fefaee0a71d1fb2a98f49.png" alt="" class="responsive-img valign profile-image-login">
+                <h5 class="header col s12 light">Registro de estudiante asociado al <br /><%= institution_name_with_link %></h5>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+            <%= devise_error_messages! %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+            <div class="row margin">
+              <div class="input-field col s12">
+                <i class="mdi-social-person-outline prefix"></i>
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+            </div>
+            <div class="row margin">
+              <div class="input-field col s12">
+                <i class="mdi-action-lock-outline prefix"></i>
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
 
-<%= render "devise/shared/links" %>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "off" %>
+                <em>Mínimo (<%= @minimum_password_length %> caracteres)</em>
+              </div>
+            </div>
+
+            <div class="row margin">
+              <div class="input-field col s12">
+                <i class="mdi-action-lock-outline prefix"></i>
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12 center">
+                <div class="btn waves-effect waves-light">
+                  <%= f.submit "Registrarse" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6 m6 l6">
+                <p class="margin medium-small"><%= render "devise/shared/links" %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>

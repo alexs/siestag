@@ -3,7 +3,7 @@
 # Table name: student_informations
 #
 #  id               :integer          not null, primary key
-#  institution_id   :integer
+#  institution_name :string
 #  degree_id        :integer
 #  tutor_id         :integer
 #  schoolarship     :boolean

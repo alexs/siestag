@@ -3,7 +3,7 @@
 # Table name: student_informations
 #
 #  id               :integer          not null, primary key
-#  institution_id   :integer
+#  institution_name :string
 #  degree_id        :integer
 #  tutor_id         :integer
 #  schoolarship     :boolean
@@ -20,6 +20,13 @@
 #  index_student_informations_on_student_id  (student_id)
 #
 
+require 'salva'
 class StudentInformation < ActiveRecord::Base
   belongs_to :student
+  belongs_to :degree
+  belongs_to :activity_type
+
+  def tutor_name
+		Salva.get_profile_by_id(self.tutor_id).parsed_response["name"]
+	end
 end

@@ -1,0 +1,32 @@
+h4.blue-text Datos registrados
+hr
+  p.flow-text
+    strong Nombre:
+    = @student.fullname
+  p.flow-text
+    strong Lugar de Nacimiento:
+    = @student.country.name
+  p.flow-text
+    strong Nacionalidad:
+    = @student.country.citizen
+  p.flow-text
+    strong Institución:
+    = @student.student_information.institution_name
+  p.flow-text
+    strong Grado:
+    = @student.student_information.degree.name
+  p.flow-text
+    strong Tutor:
+    = @student.student_information.tutor_name
+  p.flow-text
+    strong Beca:
+    = @student.student_information.schoolarship
+  p.flow-text
+    strong Tipo de actividad:
+    = @student.student_information.activity_type.name
+  p.flow-text
+    strong Mes de inicio:
+    = @student.student_information.startmonth
+  p.flow-text
+    strong Año de inicio:
+    = @student.student_information.startyear

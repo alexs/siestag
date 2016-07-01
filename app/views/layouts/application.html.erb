@@ -13,7 +13,10 @@
       <div class="nav-wrapper container"><%= link_to_institution_site %>
         <% if current_user %>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Salir</a></li>
+          <% if user_signed_in? %>
+            <li> <%= current_user.email %>  | </li>
+          <% end %>
+          <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
         </ul>
         <% end %>
 
@@ -24,6 +27,9 @@
       </div>
     </nav>
     <div class="container">
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

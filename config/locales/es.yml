@@ -1,0 +1,61 @@
+es:
+  errors: &errors
+    format:  '%{attribute} %{message}'
+    messages:
+      validations:
+        message: There was validation errors on %{document}
+        summary: "Errors:\n    %{errors}"
+        resolution: Check the instances for this model looking for missing fields or wrong values.
+  activemodel:
+    errors:
+      <<: *errors
+  mongoid:
+    errors:
+      <<: *errors
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+  routes:
+    pages: contenido
+    tutors: tutores
+    events: eventos
+    notices: avisos
+    subjects: asignaturas
+  menu:
+    home: Inicio
+    institute: Instituto
+    research: Investigación
+    departments: Departamentos
+    laboratory_services: Laboratorios y servicios
+    postgraduate: Posgrados
+    dissemination: Difusión y divulgación
+    entailment: Vinculación
+    directory: Directorio
+    seminaries: Seminarios
+    library: Biblioteca
+    office-communication: Unidad de comunicación
+    committees: Comisiones y representantes
+    history: Origen e Historia
+    organization: Organización
+    office-entailment: Coordinación de Vinculación
+    about: ¿Quiénes somos?
+  departments:
+    menu:
+      members: Personal Académico
+      posdocs: Posdoctorantes
+      researchers: Investigadores
+      technicians: Técnicos Académicos
+      deparment: Departamento
+      laboratories: Laboratorios
+  activerecord:
+    models:
+      user: Estudiante
+    attributes:
+      user:
+        email: Correo electrónico
+        password: Contraseña
+        password_confirmation: Confirmar correo electrónico
+      period:
+        name: Nombre del semestre

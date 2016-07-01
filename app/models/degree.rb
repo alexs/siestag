@@ -9,4 +9,5 @@
 #
 
 class Degree < ActiveRecord::Base
+  has_many :student_informations
 end

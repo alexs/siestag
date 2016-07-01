@@ -11,4 +11,6 @@
 #
 
 class Country < ActiveRecord::Base
+  has_one :student, class_name: 'Student', primary_key: 'id', foreign_key: 'birthplace'
+  has_one :student, class_name: 'Student', primary_key: 'id', foreign_key: 'nationality'
 end

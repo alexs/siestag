@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160502164137) do
   end
 
   create_table "student_informations", force: :cascade do |t|
-    t.integer  "institution_id"
+    t.string   "institution_name"
     t.integer  "degree_id"
     t.integer  "tutor_id"
     t.boolean  "schoolarship"

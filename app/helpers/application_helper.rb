@@ -10,4 +10,8 @@ module ApplicationHelper
     Siestag::SiteConfig.institution('url')
     link_to Siestag::SiteConfig.institution('name'), Siestag::SiteConfig.institution('url'), target: '_blank'
   end
+
+  def institution_name
+    Siestag::SiteConfig.institution('name').to_s
+  end
 end
