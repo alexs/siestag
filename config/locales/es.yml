@@ -52,6 +52,7 @@ es:
   activerecord:
     models:
       user: Estudiante
+      student: Estudiante
     attributes:
       user:
         email: Correo electrónico
