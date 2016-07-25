@@ -68,7 +68,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              Rails.application.secrets.email_server,
-    port:                 587,
+    port:                 25,
     domain:               Rails.application.secrets.email_domain,
     user_name:            Rails.application.secrets.email_user,
     password:             Rails.application.secrets.email_password,
