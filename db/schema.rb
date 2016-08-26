@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160502164137) do
     t.string   "institution_name"
     t.integer  "degree_id"
     t.integer  "tutor_id"
-    t.boolean  "schoolarship"
+    t.integer  "schoolarship"
     t.integer  "activity_type_id"
     t.text     "activity_other"
     t.integer  "startmonth"

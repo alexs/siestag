@@ -6,7 +6,7 @@
 #  institution_name :string
 #  degree_id        :integer
 #  tutor_id         :integer
-#  schoolarship     :boolean
+#  schoolarship     :integer
 #  activity_type_id :integer
 #  activity_other   :text
 #  startmonth       :integer
@@ -25,6 +25,8 @@ class StudentInformation < ActiveRecord::Base
   belongs_to :student
   belongs_to :degree
   belongs_to :activity_type
+
+  validates :institution_name, :degree_id, :tutor_id, :schoolarship, :activity_type_id, :startmonth, :startyear, presence: true
 
   def tutor_name
 		Salva.get_profile_by_id(self.tutor_id).parsed_response["name"]

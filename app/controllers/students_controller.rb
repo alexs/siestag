@@ -3,6 +3,7 @@ class StudentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    redirect_to new_student_url
   end
 
   def new
@@ -31,10 +32,11 @@ class StudentsController < ApplicationController
 
   private
   def set_student
-    @student = Student.find(params[:id])
+    @student = current_user.student
+    #Student.find(params[:id])
   end
 
   def student_params
-    params.require(:student).permit( :name, :middlename, :lastname, :birthplace, :nationality, :user_id, student_information_attributes: [:institution_name, :degree_id, :tutor_id, :activity_type_id, :startmonth, :startyear] )
+    params.require(:student).permit( :name, :middlename, :lastname, :birthplace, :nationality, :user_id, student_information_attributes: [:institution_name, :degree_id, :tutor_id, :activity_type_id, :startmonth, :startyear, :schoolarship] )
   end
 end

@@ -57,6 +57,20 @@ es:
       user:
         email: Correo electrónico
         password: Contraseña
-        password_confirmation: Confirmar correo electrónico
+        password_confirmation: Confirmar contraseña
       period:
         name: Nombre del semestre
+      student:
+        name: Nombre
+        middlename: Apellido paterno
+        lastname: Apellido materno
+        birthplace: Lugar de nacimiento
+        nationality: Nacionalidad
+      student_information:
+        institution_name: Escuela de procedencia
+        degree_id: Grado
+        activity_type_id: Tipo de actividad que desarrollará en el Instituto
+        tutor_id: Tutor ó académico responsable
+        schoolarship: ¿Recibirá alguna beca por parte del Instituto?
+        startmonth: Mes de inicio de su actividad en el Instituto
+        startyear: Año de inicio de su actividad en el Instituto

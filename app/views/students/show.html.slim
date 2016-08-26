@@ -20,7 +20,7 @@ hr
     = @student.student_information.tutor_name
   p.flow-text
     strong Beca:
-    = @student.student_information.schoolarship
+    = schoolarship @student.student_information.schoolarship
   p.flow-text
     strong Tipo de actividad:
     = @student.student_information.activity_type.name
@@ -30,3 +30,9 @@ hr
   p.flow-text
     strong Año de inicio:
     = @student.student_information.startyear
+  p.center
+    .row
+      .col.s4.offset-s3
+        // = link_to "Modifcar", edit_student_path(@student), class: "btn"
+      .col.s4
+        = link_to "Salir", destroy_user_session_path, :method => :delete, class: "btn red"

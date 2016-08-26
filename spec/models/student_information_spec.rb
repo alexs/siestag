@@ -6,7 +6,7 @@
 #  institution_name :string
 #  degree_id        :integer
 #  tutor_id         :integer
-#  schoolarship     :boolean
+#  schoolarship     :integer
 #  activity_type_id :integer
 #  activity_other   :text
 #  startmonth       :integer

@@ -14,4 +14,12 @@ module ApplicationHelper
   def institution_name
     Siestag::SiteConfig.institution('name').to_s
   end
+
+  def schoolarship(value)
+    if value == 1
+      "Si"
+    else
+      "No"
+    end
+  end
 end

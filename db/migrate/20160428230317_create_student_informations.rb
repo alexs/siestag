@@ -4,7 +4,7 @@ class CreateStudentInformations < ActiveRecord::Migration
       t.string :institution_name
       t.integer :degree_id
       t.integer :tutor_id
-      t.boolean :schoolarship
+      t.integer :schoolarship
       t.integer :activity_type_id
       t.text :activity_other
       t.integer :startmonth
