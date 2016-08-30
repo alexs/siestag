@@ -2,18 +2,19 @@
 #
 # Table name: student_informations
 #
-#  id               :integer          not null, primary key
-#  institution_name :string
-#  degree_id        :integer
-#  tutor_id         :integer
-#  schoolarship     :integer
-#  activity_type_id :integer
-#  activity_other   :text
-#  startmonth       :integer
-#  startyear        :integer
-#  student_id       :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id                  :integer          not null, primary key
+#  institution_name    :string
+#  degree_id           :integer
+#  tutor_id            :integer
+#  schoolarship        :integer
+#  activity_type_id    :integer
+#  activity_other      :text
+#  worktype_related_id :integer
+#  startmonth          :integer
+#  startyear           :integer
+#  student_id          :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 # Indexes
 #
@@ -31,4 +32,17 @@ class StudentInformation < ActiveRecord::Base
   def tutor_name
 		Salva.get_profile_by_id(self.tutor_id).parsed_response["name"]
 	end
+
+  def worktype
+    case worktype_related_id
+    when 0
+      "No se encuentra relacionada"
+    when 1
+      'CONACyT'
+    when 2
+      'PAPIIT'
+    when 3
+      'PAPIME'
+    end
+  end
 end

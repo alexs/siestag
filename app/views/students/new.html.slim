@@ -57,15 +57,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s4">
+      <div class="input-field col s3">
+        = student_information.select(:worktype_related_id, options_for_select([['CONACyT', 1], ['PAPIIT', 2], ['PAPIME', 3], ['No se encuentra relacionada', 0]]))
+        = student_information.label :worktype_related_id
+      </div>
+      <div class="input-field col s3">
         = student_information.select(:schoolarship, options_for_select([['Sí', 1], ['No', 0]]))
         = student_information.label :schoolarship
       </div>
-      <div class="input-field col s4">
+      <div class="input-field col s3">
         = student_information.select :startmonth, 1..12
         = student_information.label :startmonth
       </div>
-      <div class="input-field col s4">
+      <div class="input-field col s3">
         = student_information.select :startyear, Date.today.year.. 8.years.from_now.year
         = student_information.label :startyear
       </div>

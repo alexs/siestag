@@ -19,6 +19,9 @@ hr
     strong Tutor:
     = @student.student_information.tutor_name
   p.flow-text
+    strong Tu actividad se encuentra relacionada con un proyecto:
+    = @student.student_information.worktype
+  p.flow-text
     strong Beca:
     = schoolarship @student.student_information.schoolarship
   p.flow-text

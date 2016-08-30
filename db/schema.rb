@@ -43,11 +43,12 @@ ActiveRecord::Schema.define(version: 20160502164137) do
     t.integer  "schoolarship"
     t.integer  "activity_type_id"
     t.text     "activity_other"
+    t.integer  "worktype_related_id"
     t.integer  "startmonth"
     t.integer  "startyear"
     t.integer  "student_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   add_index "student_informations", ["student_id"], name: "index_student_informations_on_student_id", using: :btree
