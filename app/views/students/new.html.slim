@@ -70,7 +70,7 @@
         = student_information.label :startmonth
       </div>
       <div class="input-field col s3">
-        = student_information.select :startyear, Date.today.year.. 8.years.from_now.year
+        = student_information.select :startyear, 3.years.ago.year.. 8.years.from_now.year
         = student_information.label :startyear
       </div>
     </div>
